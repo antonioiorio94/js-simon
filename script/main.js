@@ -8,21 +8,44 @@ Consigli del giorno:
 * Individuate gli elementi di cui avete bisogno per realizzare il programma.*/
 
 const randomArray = []
-let numberContainer = document.getElementById('container');
+let numberContainer = document.getElementById('numberContainer');
+const userNumber = [];
 
 
-
+//Generare 5 numeri random
 for (let i = 1; i <= 5; i++) {
   let randomNum = randomNumber(1, 100);
   randomArray.push(randomNum);
 
 }
 
-console.log(randomArray);
+//Mostrarli nella viewport
+console.log(randomArray)
 numberContainer.innerHTML = randomArray;
 
+
+//funzione numeri random
 function randomNumber(min, max){
   const range = max - min + 1;
   const randomNumber = Math.floor(Math.random()*range) + min;
   return randomNumber;
 }
+
+
+//Aggiunta Timeouts
+setTimeout(askUser, 5000);
+
+
+
+//funzione per richiedere i numeri
+function askUser () {
+  for (let i = 0; i <5; i++){
+    const userChoice = parseInt(prompt('Inserisci il numero'));
+    userNumber.push(userChoice);
+  }
+  
+
+}
+
+console.log(userNumber)
+
