@@ -50,23 +50,22 @@ function askUser () {
     
   }
   console.log(userNumber);
-  
-}
+
+  const guessedNumbers = [];
 
 
-
-const guessedNumbers = [];
-
-
-//quanti numeri sono stati indovinati
+//quanti e quali numeri sono stati indovinati
 for (let i = 0; i < userNumber.length; i++){
 
   if(randomArray.includes(userNumber[i])){
 
     guessedNumbers.push(userNumber[i])
     
-    
       }
   
 }
-console.log(guessedNumbers);
+console.log(`Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers}`);
+  
+}
+
+
