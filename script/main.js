@@ -12,6 +12,10 @@ let numberContainer = document.getElementById('numberContainer');
 const userNumber = [];
 
 
+
+
+
+
 //Generare 5 numeri random
 for (let i = 1; i <= 5; i++) {
   let randomNum = randomNumber(1, 100);
@@ -39,13 +43,30 @@ setTimeout(askUser, 5000);
 
 //funzione per richiedere i numeri
 function askUser () {
+  let userChoice;
   for (let i = 0; i <5; i++){
-    const userChoice = parseInt(prompt('Inserisci il numero'));
+    userChoice = parseInt(prompt('Inserisci il numero'));
     userNumber.push(userChoice);
+    
   }
+  console.log(userNumber);
   
-
 }
 
-console.log(userNumber)
 
+
+const guessedNumbers = [];
+
+
+//quanti numeri sono stati indovinati
+for (let i = 0; i < userNumber.length; i++){
+
+  if(randomArray.includes(userNumber[i])){
+
+    guessedNumbers.push(userNumber[i])
+    
+    
+      }
+  
+}
+console.log(guessedNumbers);
