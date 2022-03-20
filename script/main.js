@@ -9,7 +9,8 @@ Consigli del giorno:
 
 const randomArray = []
 const userNumber = [];
-
+let numberContainer = document.getElementById('numberContainer');
+let divWithNumber;
 
 
 
@@ -19,7 +20,7 @@ const userNumber = [];
 for (let i = 1; i <= 5; i++) {
   let randomNum = randomNumber(1, 100);
   randomArray.push(randomNum);
-  const divWithNumber = document.createElement('div');
+  divWithNumber = document.createElement('div');
   divWithNumber.id = 'number' + [i];
   divWithNumber.setAttribute("class", "number");
   divWithNumber.innerHTML = randomNum;
@@ -41,18 +42,21 @@ function randomNumber(min, max){
 
 
 //Aggiunta Timeouts
-//setTimeout(askUser, 5000);
+setTimeout(askUser, 5000);
 
 
 
 //funzione per richiedere i numeri
 function askUser () {
-  let userChoice;
-  for (let i = 0; i <5; i++){
-    userChoice = parseInt(prompt('Inserisci il numero'));
-    userNumber.push(userChoice);
-    
-  }
+  numberContainer.innerHTML = '';
+
+      
+      for (let i = 0; i <5; i++){
+        sendUserInput();
+        
+      };
+
+
   console.log(userNumber);
 
   const guessedNumbers = [];
@@ -72,6 +76,34 @@ console.log(`Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers}`)
   
 }
 
+
+function clickButton(){
+
+  
+  
+
+}
+
+
+function sendUserInput(){
+
+  const userInput = document.createElement('input');
+  userInput.setAttribute("type", "text");
+  userInput.id = ("user_input");
+  const button = document.createElement('button');
+  button.setAttribute("type", "button");
+  button.id = ("button_data");
+  button.innerHTML = ("Invia")
+  numberContainer.appendChild(userInput);
+  numberContainer.appendChild(button);
+  button.addEventListener ("click", function clickButton(){
+    
+    const userInputValue = document.getElementById("user_input").value;
+    userNumber.push(userInputValue);
+  });
+        
+
+}
 
 //PROBLEMI DA SISTEMARE
 //-----I numeri random non devono ripetersi

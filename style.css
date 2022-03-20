@@ -25,7 +25,11 @@ h1 {
   align-items: center;
 }
 
-.container {
+#hide_div {
+}
+
+.container,
+#hide_div {
   width: 50rem;
   height: 50rem;
   background-color: rgb(156, 156, 107);
