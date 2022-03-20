@@ -49,11 +49,18 @@ setTimeout(askUser, 5000);
 //funzione per richiedere i numeri
 function askUser () {
   numberContainer.innerHTML = '';
-
-      
+  
+      let userChoice;
       for (let i = 0; i <5; i++){
         sendUserInput();
+        document.getElementById("button_data").onclick = function(){
+
+          userChoice = document.getElementById("user_input").value;
+          
+        }
+        userNumber.push(userChoice);
         
+    
       };
 
 
@@ -77,14 +84,6 @@ console.log(`Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers}`)
 }
 
 
-function clickButton(){
-
-  
-  
-
-}
-
-
 function sendUserInput(){
 
   const userInput = document.createElement('input');
@@ -96,13 +95,6 @@ function sendUserInput(){
   button.innerHTML = ("Invia")
   numberContainer.appendChild(userInput);
   numberContainer.appendChild(button);
-  button.addEventListener ("click", function clickButton(){
-    
-    const userInputValue = document.getElementById("user_input").value;
-    userNumber.push(userInputValue);
-  });
-        
-
 }
 
 //PROBLEMI DA SISTEMARE
