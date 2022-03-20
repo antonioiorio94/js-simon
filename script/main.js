@@ -8,7 +8,6 @@ Consigli del giorno:
 * Individuate gli elementi di cui avete bisogno per realizzare il programma.*/
 
 const randomArray = []
-let numberContainer = document.getElementById('numberContainer');
 const userNumber = [];
 
 
@@ -16,16 +15,21 @@ const userNumber = [];
 
 
 
-//Generare 5 numeri random
+//Generare 5 numeri random inseriscili nella viewport
 for (let i = 1; i <= 5; i++) {
   let randomNum = randomNumber(1, 100);
   randomArray.push(randomNum);
+  const divWithNumber = document.createElement('div');
+  divWithNumber.id = 'number' + [i];
+  divWithNumber.setAttribute("class", "number");
+  divWithNumber.innerHTML = randomNum;
+  numberContainer.appendChild(divWithNumber);
 
 }
 
 //Mostrarli nella viewport
 console.log(randomArray)
-numberContainer.innerHTML = randomArray;
+//numberContainer.innerHTML = randomArray;
 
 
 //funzione numeri random
@@ -37,7 +41,7 @@ function randomNumber(min, max){
 
 
 //Aggiunta Timeouts
-setTimeout(askUser, 5000);
+//setTimeout(askUser, 5000);
 
 
 
@@ -69,3 +73,6 @@ console.log(`Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers}`)
 }
 
 
+//PROBLEMI DA SISTEMARE
+//-----I numeri random non devono ripetersi
+//-----l'input utente deve essere un numero
