@@ -44,29 +44,42 @@ function randomNumber(min, max){
 //Aggiunta Timeouts
 setTimeout(askUser, 5000);
 
-
+function endTimeouts(){
+  
+  askUser();
+}
 
 //funzione per richiedere i numeri
 function askUser () {
-  numberContainer.innerHTML = '';
   
-      let userChoice;
-      for (let i = 0; i <5; i++){
+  numberContainer.innerHTML = '';
+    
+       for (let i = 0; i <5; i++){
         sendUserInput();
-        document.getElementById("button_data").onclick = function(){
-
-          userChoice = document.getElementById("user_input").value;
-          
-        }
-        userNumber.push(userChoice);
-        
     
       };
+     
+     
+      let userChoice = document.getElementById("user_input");
+      let userChoiceValue = parseInt(userChoice).value;
+      
+      const button = document.createElement('button');
+      button.setAttribute("type", "button");
+      button.id = ("button");
+      button.innerHTML = ("Invia")
+      numberContainer.appendChild(button);
 
-
+      document.getElementById("button").onclick = function(){
+        userNumber.push(userChoiceValue);
+        
+        
+      }
   console.log(userNumber);
+    
 
-  const guessedNumbers = [];
+}
+
+const guessedNumbers = [];
 
 
 //quanti e quali numeri sono stati indovinati
@@ -81,7 +94,6 @@ for (let i = 0; i < userNumber.length; i++){
 }
 console.log(`Hai indovinato ${guessedNumbers.length} numeri: ${guessedNumbers}`);
   
-}
 
 
 function sendUserInput(){
@@ -89,13 +101,9 @@ function sendUserInput(){
   const userInput = document.createElement('input');
   userInput.setAttribute("type", "text");
   userInput.id = ("user_input");
-  const button = document.createElement('button');
-  button.setAttribute("type", "button");
-  button.id = ("button_data");
-  button.innerHTML = ("Invia")
   numberContainer.appendChild(userInput);
-  numberContainer.appendChild(button);
 }
+
 
 //PROBLEMI DA SISTEMARE
 //-----I numeri random non devono ripetersi
